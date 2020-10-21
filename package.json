@@ -1,0 +1,27 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SumnanAzadi/react_ecommerce.git"
+  },
+  "author": "Sumnan Azadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SumnanAzadi/react_ecommerce/issues"
+  },
+  "homepage": "https://github.com/SumnanAzadi/react_ecommerce#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
