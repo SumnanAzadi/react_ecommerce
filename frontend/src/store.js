@@ -5,6 +5,7 @@ import {
   productListReducer,
   productDetailsReducer,
 } from "./reducers/productReducers";
+import { cartReducer } from "./reducers/cartReducers";
 
 /*
 The combineReducers helper function 
@@ -14,9 +15,19 @@ into a single reducing function you can pass to createStore.
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
+  cart: cartReducer,
 });
 
-const initialState = {};
+//check if there any cart items in local storage
+const cartItemsFromStorage = localStorage.getItem("cartItems")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : [];
+
+const initialState = {
+  cart: {
+    cartItems: cartItemsFromStorage,
+  },
+};
 const middleware = [thunk];
 const store = createStore(
   reducer,
