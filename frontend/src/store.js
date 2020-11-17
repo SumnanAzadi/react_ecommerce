@@ -4,6 +4,9 @@ import { composeWithDevTools } from "redux-devtools-extension"; //to use redux d
 import {
   productListReducer,
   productDetailsReducer,
+  productCreateReducer,
+  productUpdateReducer,
+  productDeleteReducer,
 } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
 
@@ -21,6 +24,8 @@ import {
   orderDetailsReducer,
   orderPayReducer,
   orderListMyReducer,
+  orderListReducer,
+  orderDeliverReducer,
 } from "./reducers/orderReducers";
 /*
 The combineReducers helper function 
@@ -42,6 +47,11 @@ const reducer = combineReducers({
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
+  productCreate: productCreateReducer,
+  productUpdate: productUpdateReducer,
+  productDelete: productDeleteReducer,
+  orderList: orderListReducer,
+  orderDeliver: orderDeliverReducer,
 });
 
 //check if there any cart items in local storage

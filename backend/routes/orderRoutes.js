@@ -110,11 +110,19 @@ const getMyOrders = asyncHandler(async (req, res) => {
   res.json(orders);
 });
 
+// @desc    Get all orders
+// @route   GET /api/orders
+// @access  Private/Admin
+const getOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.find({}).populate("user", "id name");
+  res.json(orders);
+});
 
 router.route("/").post(protect, addOrderItems);
 router.route("/myorders").get(protect, getMyOrders);
 router.route("/:id").get(protect, getOrderById);
 router.route("/:id/pay").put(protect, updateOrderToPaid);
 router.route("/:id/deliver").put(protect, admin, updateOrderToDelivered);
+router.route("/").get(protect, admin, getOrders)
 
 export default router;
